@@ -1,0 +1,18 @@
+model TR {
+    id               String     @id @default(uuid())
+    TRID             Float @unique()
+    shopId           String
+    dhakaPartyId     String
+    shopName         String
+    quantity         Int
+    paymentStatus    Boolean
+    taka             Float
+    bookingDate      DateTime
+    isOfficeDelivery Boolean
+    note             String?
+    createdAt        DateTime   @default(now())
+    updateAt         DateTime   @updatedAt
+    dhakaParty       DhakaParty @relation(fields: [dhakaPartyId], references: [id])
+    shop             Shop       @relation(fields: [shopId], references: [id])
+    partyLes         partyLes[]
+}

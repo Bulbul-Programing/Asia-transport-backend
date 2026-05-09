@@ -1,0 +1,36 @@
+model DailyExpense {
+  id                 String   @id @default(uuid())
+  date               DateTime
+  labourSalary       Float
+  officeCost         Float
+  carRent            Float?
+  vanRepair          Float?
+  mobileBill         Float?
+  transportationCost Float?
+  managerSalary      Float?
+  stationery         Float?
+  securitySalary     Float?
+  donation           Float?
+  compensation       Float?
+  bkashBill          Float?
+  electricityBill    Float?
+  officeRent         Float?
+  misc               Float?
+
+  createdAt DateTime   @default(now())
+  updateAt  DateTime   @updatedAt
+  partyLes  partyLes[]
+}
+
+model partyLes {
+  id             String       @id @default(uuid())
+  whichDay       String
+  TR             Float        @unique()
+  totalAmount    Int
+  discountAmount Int
+  note           String
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+  TRNo           TR           @relation(fields: [TR], references: [TRID])
+  collectionDate DailyExpense @relation(fields: [whichDay], references: [id])
+}

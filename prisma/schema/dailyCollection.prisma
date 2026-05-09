@@ -1,0 +1,8 @@
+model dailyCollection {
+    id              String   @id @default(uuid())
+    date            DateTime @default(now())
+    totalCollection Int
+    vanIncome       Int
+    createdAt       DateTime @default(now())
+    updatedAt       DateTime @updatedAt
+}
