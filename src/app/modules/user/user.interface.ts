@@ -1,5 +1,5 @@
 
-export enum Role {
+export enum UserRole {
     ADMIN = "ADMIN",
     USER = "USER",
 }
@@ -10,7 +10,7 @@ export type TUser = {
     Email: string;
     ShopName: string;
     Password: string;
-    Role: Role;
+    Role: UserRole;
 
     createdAt: Date;
     updateAt: Date;
