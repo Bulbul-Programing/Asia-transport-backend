@@ -6,11 +6,11 @@ export enum UserRole {
 
 export type TUser = {
     id: string;
-    Name: string;
-    Email: string;
-    ShopName: string;
-    Password: string;
-    Role: UserRole;
+    name: string;
+    email: string;
+    shopName: string;
+    password: string;
+    role: UserRole;
 
     createdAt: Date;
     updateAt: Date;
