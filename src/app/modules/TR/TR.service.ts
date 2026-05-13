@@ -13,7 +13,14 @@ const createTR = async (payload: TTR) => {
     })
 
     if (isExistTR) {
-        throw new AppError(403, "This TR is Already exist.")
+        const lastBooking = await prisma.tR.findFirst({
+            orderBy: {
+                createdAt: "desc"
+            },
+            take: 1
+        })
+        const increaseTR = Number(lastBooking?.TRID) + 1
+        payload.TRID = increaseTR.toString().padStart(6, '0')
     }
 
     const isExistShop = await prisma.shop.findFirst({
@@ -32,12 +39,15 @@ const createTR = async (payload: TTR) => {
                 shopName: payload.shopName
             }
         })
-        console.log("g");
+
         payload.shopId = createNewShop.id
     }
 
-    console.log(payload);
+    const createTR = await prisma.tR.create({
+        data: payload
+    })
 
+    return createTR
 }
 
 
