@@ -5,7 +5,8 @@ class QueryBuilder<T> {
     public prismaQuery: any;
 
     constructor(query: QueryParams) {
-        this.query = query
+        this.query = query;
+        this.prismaQuery = {};
     }
 
     searching(searchableFields: string[]) {
@@ -81,4 +82,10 @@ class QueryBuilder<T> {
 
         return this;
     }
+
+    build() {
+        return this.prismaQuery;
+    }
 }
+
+export default QueryBuilder;

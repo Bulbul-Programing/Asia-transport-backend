@@ -3,6 +3,8 @@ import { prisma } from "../../DBConfig/db";
 import AppError from "../../middleware/AppError";
 import { TUser, UserRole } from "./user.interface";
 import { envVars } from "../../envConfig";
+import { paginationCalculation } from "../../utils/paginationCalculation";
+import QueryBuilder from "../../builder/QueryBuilder";
 
 
 const createUser = async (payload: TUser) => {
@@ -24,7 +26,7 @@ const createUser = async (payload: TUser) => {
     return createUser
 }
 
-const crateAdmin = async (payload: TUser) => {
+const createAdmin = async (payload: TUser) => {
     const isExistUser = await prisma.user.findUnique({
         where: { email: payload.email }
     })
@@ -46,7 +48,37 @@ const crateAdmin = async (payload: TUser) => {
     return createUser
 }
 
+const getAllUser = async (options: any) => {
+    const {skip, page, limit } = paginationCalculation(options)
+
+    const userQueryBuilder = new QueryBuilder(options)
+        .searching(["name", "email", "shopName"])
+
+    const result = await prisma.user.findMany({
+        ...userQueryBuilder.prismaQuery
+    })
+
+    const total = await prisma.user.count({
+        where: userQueryBuilder.prismaQuery.where
+    })
+
+    const returnData = {
+        meta: {
+            page: Number(page),
+            limit: Number(limit),
+            totalPage: Math.ceil(total / Number(limit)),
+            total: total,
+            skip: Number(skip)
+        },
+        data: result
+    }
+
+    return returnData
+
+}
 
 export const userService = {
-    createUser
+    createUser,
+    createAdmin,
+    getAllUser
 }
