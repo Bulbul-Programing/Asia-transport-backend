@@ -51,6 +51,11 @@ export const AnyNull = runtime.AnyNull
 
 
 export const ModelName = {
+  TR: 'TR',
+  dailyCollection: 'dailyCollection',
+  DailyExpense: 'DailyExpense',
+  partyLes: 'partyLes',
+  Shop: 'Shop',
   User: 'User'
 } as const
 
@@ -68,6 +73,86 @@ export const TransactionIsolationLevel = runtime.makeStrictEnum({
 } as const)
 
 export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
+
+
+export const TRScalarFieldEnum = {
+  id: 'id',
+  TRID: 'TRID',
+  shopId: 'shopId',
+  shopName: 'shopName',
+  quantity: 'quantity',
+  paymentStatus: 'paymentStatus',
+  taka: 'taka',
+  bookingDate: 'bookingDate',
+  isOfficeDelivery: 'isOfficeDelivery',
+  note: 'note',
+  createdAt: 'createdAt',
+  updateAt: 'updateAt'
+} as const
+
+export type TRScalarFieldEnum = (typeof TRScalarFieldEnum)[keyof typeof TRScalarFieldEnum]
+
+
+export const DailyCollectionScalarFieldEnum = {
+  id: 'id',
+  date: 'date',
+  totalCollection: 'totalCollection',
+  vanIncome: 'vanIncome',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type DailyCollectionScalarFieldEnum = (typeof DailyCollectionScalarFieldEnum)[keyof typeof DailyCollectionScalarFieldEnum]
+
+
+export const DailyExpenseScalarFieldEnum = {
+  id: 'id',
+  date: 'date',
+  labourSalary: 'labourSalary',
+  officeCost: 'officeCost',
+  carRent: 'carRent',
+  vanRepair: 'vanRepair',
+  mobileBill: 'mobileBill',
+  transportationCost: 'transportationCost',
+  managerSalary: 'managerSalary',
+  stationery: 'stationery',
+  securitySalary: 'securitySalary',
+  donation: 'donation',
+  compensation: 'compensation',
+  bkashBill: 'bkashBill',
+  electricityBill: 'electricityBill',
+  officeRent: 'officeRent',
+  misc: 'misc',
+  createdAt: 'createdAt',
+  updateAt: 'updateAt'
+} as const
+
+export type DailyExpenseScalarFieldEnum = (typeof DailyExpenseScalarFieldEnum)[keyof typeof DailyExpenseScalarFieldEnum]
+
+
+export const PartyLesScalarFieldEnum = {
+  id: 'id',
+  whichDay: 'whichDay',
+  TR: 'TR',
+  totalAmount: 'totalAmount',
+  discountAmount: 'discountAmount',
+  note: 'note',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type PartyLesScalarFieldEnum = (typeof PartyLesScalarFieldEnum)[keyof typeof PartyLesScalarFieldEnum]
+
+
+export const ShopScalarFieldEnum = {
+  id: 'id',
+  shopName: 'shopName',
+  phoneNumber: 'phoneNumber',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ShopScalarFieldEnum = (typeof ShopScalarFieldEnum)[keyof typeof ShopScalarFieldEnum]
 
 
 export const UserScalarFieldEnum = {
@@ -98,4 +183,12 @@ export const QueryMode = {
 } as const
 
 export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
+
+
+export const NullsOrder = {
+  first: 'first',
+  last: 'last'
+} as const
+
+export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
 

@@ -267,7 +267,7 @@ export type UserCreateInput = {
   email: string
   shopName: string
   password: string
-  role: $Enums.Role
+  role?: $Enums.Role
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -278,7 +278,7 @@ export type UserUncheckedCreateInput = {
   email: string
   shopName: string
   password: string
-  role: $Enums.Role
+  role?: $Enums.Role
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -311,7 +311,7 @@ export type UserCreateManyInput = {
   email: string
   shopName: string
   password: string
-  role: $Enums.Role
+  role?: $Enums.Role
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -371,16 +371,8 @@ export type UserMinOrderByAggregateInput = {
   updatedAt?: Prisma.SortOrder
 }
 
-export type StringFieldUpdateOperationsInput = {
-  set?: string
-}
-
 export type EnumRoleFieldUpdateOperationsInput = {
   set?: $Enums.Role
-}
-
-export type DateTimeFieldUpdateOperationsInput = {
-  set?: Date | string
 }
 
 

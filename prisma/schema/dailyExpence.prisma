@@ -25,12 +25,12 @@ model DailyExpense {
 model partyLes {
   id             String       @id @default(uuid())
   whichDay       String
-  TR             Float        @unique()
+  TR             String       @unique()
   totalAmount    Int
   discountAmount Int
   note           String
   createdAt      DateTime     @default(now())
   updatedAt      DateTime     @updatedAt
-  TRNo           TR           @relation(fields: [TR], references: [TRID])
   collectionDate DailyExpense @relation(fields: [whichDay], references: [id])
+  tr             TR?          @relation(fields: [TR], references: [id])
 }
