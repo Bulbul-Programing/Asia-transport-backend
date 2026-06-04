@@ -36,13 +36,9 @@ const updateTRValidationSchema = z.object({
         .min(1, { message: "TRID is required" })
         .optional(),
 
-    ShopId: z
+    shopName: z
         .string()
         .min(1, { message: "ShopId is required" })
-        .optional(),
-
-    DhakaPartyId: z
-        .string()
         .optional(),
 
     Quantity: z
@@ -64,7 +60,12 @@ const updateTRValidationSchema = z.object({
         .string()
         .max(500, { message: "Note cannot exceed 500 characters" })
         .optional(),
-});
+}).refine(
+    (data) => Object.values(data).some((v) => v !== undefined),
+    {
+        message: "Please at least one field must be provided for update",
+    }
+)
 
 export const TRValidationSchema = {
     createTRValidationSchema,

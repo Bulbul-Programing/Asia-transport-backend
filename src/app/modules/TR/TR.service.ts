@@ -30,11 +30,6 @@ const createTR = async (payload: TTR) => {
             shopName: payload.shopName
         }
     })
-
-    if (isExistShop) {
-        payload.shopId = isExistShop?.id
-    }
-
     if (!isExistShop) {
         const createNewShop = await prisma.shop.create({
             data: {
@@ -44,6 +39,11 @@ const createTR = async (payload: TTR) => {
 
         payload.shopId = createNewShop.id
     }
+
+    if (isExistShop) {
+        payload.shopId = isExistShop.id
+    }
+
 
     const createTR = await prisma.tR.create({
         data: payload
@@ -112,7 +112,11 @@ const getTRsByBookingDate = async (options: any) => {
     const { skip, page, limit } = paginationCalculation(options)
 
     const TRQueryBuilder = new QueryBuilder(options)
+        .searching(['shopName'])
         .filterByDate("bookingDate")
+        .fields()
+        .sort()
+        .paginate()
 
     const result = await prisma.tR.findMany({
         ...TRQueryBuilder.prismaQuery
@@ -136,8 +140,100 @@ const getTRsByBookingDate = async (options: any) => {
     return returnData
 }
 
+const getTR = async (tr: string) => {
+    const roundTR = tr.toString().padStart(6, '0')
+    const result = await prisma.tR.findUnique({
+        where: {
+            TRID: roundTR
+        }
+    })
+
+    return result
+}
+
+const updateTR = async (tr: string, payload: Partial<TTR>) => {
+    const roundTR = tr.toString().padStart(6, '0')
+    const isExistTR = await prisma.tR.findUnique({
+        where: { TRID: roundTR }
+    })
+
+    if (!isExistTR) {
+        throw new AppError(404, "TR Not Found!")
+    }
+
+    if (payload.shopName) {
+        const isExistShop = await prisma.shop.findFirst({
+            where: {
+                shopName: payload.shopName
+            }
+        })
+        if (!isExistShop) {
+            const createNewShop = await prisma.shop.create({
+                data: {
+                    shopName: payload.shopName
+                }
+            })
+
+            payload.shopId = createNewShop.id
+        }
+
+        if (isExistShop) {
+            payload.shopId = isExistShop.id
+        }
+    }
+
+
+    const updateTR = await prisma.tR.update({
+        where: { TRID: roundTR },
+        data: payload
+    })
+
+    return updateTR
+}
+
+const updateTRPaymentStatus = async (trs: string[]) => {
+    const roundedTRS = []
+
+    for (let i = 0; i < trs.length; i++) {
+        roundedTRS.push(trs[i].toString().padStart(6, '0'))
+    }
+
+    const existingTRs = await prisma.tR.findMany({
+        where: {
+            TRID: {
+                in: roundedTRS,
+            },
+        },
+    });
+
+    const foundIds = existingTRs.map((tr) => tr.TRID);
+
+    const missingIds = roundedTRS.filter((id) => !foundIds.includes(id));
+
+    if (missingIds.length > 0) {
+        throw new Error(`TR not found: ${missingIds.join(", ")}`);
+    }
+
+    const updateTR = await prisma.tR.updateMany({
+        where: {
+            TRID: {
+                in: roundedTRS,
+            },
+        },
+        data: {
+            paymentStatus: true,
+        },
+    });
+
+    return updateTR
+
+};
+
 export const TRService = {
     createTR,
     createMultipleTR,
-    getTRsByBookingDate
+    getTRsByBookingDate,
+    getTR,
+    updateTR,
+    updateTRPaymentStatus
 }
