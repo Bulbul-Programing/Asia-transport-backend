@@ -50,7 +50,68 @@ const createTR = async (payload: TTR) => {
     return createTR
 }
 
+const createMultipleTR = async (payloads: TTR[]) => {
+    console.log(payloads);
+    return await prisma.$transaction(async (tx) => {
+        const results = [];
+
+        for (const payload of payloads) {
+            // Format TRID
+            payload.TRID = payload.TRID.toString().padStart(6, "0");
+
+            // Check existing TRID
+            const isExistTR = await tx.tR.findUnique({
+                where: {
+                    TRID: payload.TRID,
+                },
+            });
+
+            if (isExistTR) {
+                const lastTR = await tx.tR.findFirst({
+                    orderBy: {
+                        createdAt: "desc",
+                    },
+                });
+
+                const increaseTR = Number(lastTR?.TRID || 0) + 1;
+                payload.TRID = increaseTR.toString().padStart(6, "0");
+            }
+
+            // Find or create shop
+            let shop = await tx.shop.findFirst({
+                where: {
+                    shopName: payload.shopName,
+                },
+            });
+
+            if (!shop) {
+                shop = await tx.shop.create({
+                    data: {
+                        shopName: payload.shopName,
+                    },
+                });
+            }
+
+            payload.shopId = shop.id;
+
+            // Create TR
+            const tr = await tx.tR.create({
+                data: payload,
+            });
+
+            results.push(tr);
+        }
+
+        return results;
+    });
+};
+
+const getTRByBookingDate = async (bookingDate : Date) => {
+    console.log(bookingDate);
+}
 
 export const TRService = {
-    createTR
+    createTR,
+    createMultipleTR,
+    getTRByBookingDate
 }

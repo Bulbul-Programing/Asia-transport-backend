@@ -16,6 +16,19 @@ const createTR = catchAsync(async (req: Request, res: Response) => {
     })
 })
 
+const createMultipleTR = catchAsync(async (req: Request, res: Response) => {
+    const payload = req.body
+    const result = await TRService.createMultipleTR(payload);
+
+    sendResponse(res, {
+        statusCode: 200,
+        success: true,
+        message: "Multiple TR Create successfully!",
+        data: result
+    })
+})
+
 export const TRController = {
-    createTR
+    createTR,
+    createMultipleTR
 }

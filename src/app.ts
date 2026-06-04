@@ -4,6 +4,7 @@ import 'dotenv/config'
 import cookieParser from 'cookie-parser';
 import { envVars } from './app/envConfig';
 import router from './app/router';
+import globalErrorHandler from './app/middleware/globalErrorHandler';
 
 const app: Application = express()
 
@@ -23,5 +24,8 @@ app.get('/', (req: Request, res: Response) => {
         timeStamp: new Date().toISOString()
     })
 });
+
+
+app.use(globalErrorHandler);
 
 export default app;

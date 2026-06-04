@@ -6,7 +6,6 @@ import { setupGracefulShutdown } from "./app/middleware/shutdown";
 let server: Server
 async function mainFunction() {
     try {
-        console.log(envVars.PORT);
         server = app.listen(envVars.PORT, () => {
             console.log(`🚀 Server is running on http://localhost:${envVars.PORT}`);
         })

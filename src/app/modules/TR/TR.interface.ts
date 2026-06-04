@@ -2,7 +2,6 @@ export type TTR = {
   ID: string;
   TRID: string;
   shopId: string;
-  dhakaPartyId: string;
   shopName: string;
   quantity: number;
   paymentStatus: boolean;

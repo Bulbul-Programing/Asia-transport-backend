@@ -28,6 +28,8 @@ const createTRValidationSchema = z.object({
         .optional(),
 });
 
+const createMultipleTRValidationSchema = z.array(createTRValidationSchema)
+
 const updateTRValidationSchema = z.object({
     TRID: z
         .string()
@@ -66,5 +68,6 @@ const updateTRValidationSchema = z.object({
 
 export const TRValidationSchema = {
     createTRValidationSchema,
-    updateTRValidationSchema
+    updateTRValidationSchema,
+    createMultipleTRValidationSchema
 }
