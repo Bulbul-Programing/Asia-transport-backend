@@ -41,7 +41,46 @@ class QueryBuilder<T> {
         return this;
     }
 
+    filterByDate(field: string) {
+        const date = this.query.date as string;
 
+        if (!date) return this;
+
+        const startDate = new Date(`${date}T00:00:00.000Z`);
+        const endDate = new Date(`${date}`);
+        endDate.setUTCDate(endDate.getUTCDate() + 1);
+
+        this.prismaQuery.where = {
+            ...this.prismaQuery.where,
+            [field]: {
+                gte: startDate,
+                lt: endDate,
+            },
+        };
+
+        return this;
+    }
+
+    filterByDateRange(field: string) {
+        const startDate = this.query.startDate as string;
+        const endDate = this.query.endDate as string;
+
+        if (!startDate || !endDate) return this;
+
+        const start = new Date(`${startDate}T00:00:00.000Z`);
+        const end = new Date(`${endDate}`);
+        end.setUTCDate(end.getUTCDate() + 1);
+
+        this.prismaQuery.where = {
+            ...this.prismaQuery.where,
+            [field]: {
+                gte: start,
+                lt: end,
+            },
+        };
+
+        return this;
+    }
 
     sort() {
         const sort = this.query.sort as string;

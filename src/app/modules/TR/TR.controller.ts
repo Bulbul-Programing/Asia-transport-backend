@@ -28,7 +28,21 @@ const createMultipleTR = catchAsync(async (req: Request, res: Response) => {
     })
 })
 
+const getTRsByBookingDate = catchAsync(async (req: Request, res: Response) => {
+    const options = req.query
+
+    const result = await TRService.getTRsByBookingDate(options);
+
+    sendResponse(res, {
+        statusCode: 200,
+        success: true,
+        message: "Bookings retrieved successfully!",
+        data: result
+    })
+})
+
 export const TRController = {
     createTR,
-    createMultipleTR
+    createMultipleTR,
+    getTRsByBookingDate
 }

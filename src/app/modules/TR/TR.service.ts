@@ -1,5 +1,7 @@
+import QueryBuilder from "../../builder/QueryBuilder";
 import { prisma } from "../../DBConfig/db";
 import AppError from "../../middleware/AppError";
+import { paginationCalculation } from "../../utils/paginationCalculation";
 import { TTR } from "./TR.interface";
 
 
@@ -106,12 +108,36 @@ const createMultipleTR = async (payloads: TTR[]) => {
     });
 };
 
-const getTRByBookingDate = async (bookingDate : Date) => {
-    console.log(bookingDate);
+const getTRsByBookingDate = async (options: any) => {
+    const { skip, page, limit } = paginationCalculation(options)
+
+    const TRQueryBuilder = new QueryBuilder(options)
+        .filterByDate("bookingDate")
+
+    const result = await prisma.tR.findMany({
+        ...TRQueryBuilder.prismaQuery
+    })
+
+    const total = await prisma.tR.count({
+        where: TRQueryBuilder.prismaQuery.where
+    })
+
+    const returnData = {
+        meta: {
+            page: Number(page),
+            limit: Number(limit),
+            totalPage: Math.ceil(total / Number(limit)),
+            total: total,
+            skip: Number(skip)
+        },
+        data: result
+    }
+
+    return returnData
 }
 
 export const TRService = {
     createTR,
     createMultipleTR,
-    getTRByBookingDate
+    getTRsByBookingDate
 }
