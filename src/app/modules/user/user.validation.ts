@@ -16,7 +16,7 @@ const createUserSchema = z.object({
         .trim()
         .min(6, "Password must be at least 2 characters long")
         .max(20, "Password cannot exceed 100 characters"),
-    role: z.enum(["ADMIN", "USER"]),
+    role: z.enum(["ADMIN", "USER"]).default("USER"),
 })
 
 const updateUserSchema = z.object({

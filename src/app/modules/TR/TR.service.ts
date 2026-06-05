@@ -214,6 +214,14 @@ const updateTRPaymentStatus = async (trs: string[]) => {
         throw new Error(`TR not found: ${missingIds.join(", ")}`);
     }
 
+    const totalDueCollection = existingTRs.reduce((sum, current) => {
+        console.log(current);
+        if (!current.paymentStatus) {
+            return sum + current.taka
+        }
+        return sum
+    }, 0)
+
     const updateTR = await prisma.tR.updateMany({
         where: {
             TRID: {
