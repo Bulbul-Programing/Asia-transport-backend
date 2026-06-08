@@ -53,7 +53,6 @@ const createTR = async (payload: TTR) => {
 }
 
 const createMultipleTR = async (payloads: TTR[]) => {
-    console.log(payloads);
     return await prisma.$transaction(async (tx) => {
         const results = [];
 
@@ -215,7 +214,6 @@ const updateTRPaymentStatus = async (trs: string[]) => {
     }
 
     const totalDueCollection = existingTRs.reduce((sum, current) => {
-        console.log(current);
         if (!current.paymentStatus) {
             return sum + current.taka
         }

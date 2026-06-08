@@ -43,10 +43,9 @@ class QueryBuilder<T> {
 
     filterByDate(field: string) {
         const date = this.query.date as string;
-
         if (!date) return this;
 
-        const startDate = new Date(`${date}T00:00:00.000Z`);
+        const startDate = new Date(`${date}`);
         const endDate = new Date(`${date}`);
         endDate.setUTCDate(endDate.getUTCDate() + 1);
 
@@ -57,7 +56,6 @@ class QueryBuilder<T> {
                 lt: endDate,
             },
         };
-
         return this;
     }
 
