@@ -11,5 +11,6 @@ router.patch('/updatePaymentStatus', TRController.updateTRPaymentStatus)
 router.patch('/:trid', validateRequest(TRValidationSchema.updateTRValidationSchema), TRController.updateTR)
 router.post('/', validateRequest(TRValidationSchema.createTRValidationSchema), TRController.createTR)
 router.post('/multiple', arrayOfObjectValidateRequest(TRValidationSchema.createMultipleTRValidationSchema), TRController.createMultipleTR)
+router.delete('/:trid', TRController.deleteTR)
 
 export const TRRouter = router

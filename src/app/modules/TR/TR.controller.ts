@@ -86,11 +86,29 @@ const updateTRPaymentStatus = catchAsync(async (req: Request, res: Response) => 
     })
 })
 
+const deleteTR = catchAsync(async (req: Request, res: Response) => {
+    const tr = req.params.trid
+
+    if (!tr) {
+        throw new AppError(404, "Please provide TR")
+    }
+
+    const result = await TRService.deleteTR(tr as string);
+
+    sendResponse(res, {
+        statusCode: 200,
+        success: true,
+        message: "TR delete successfully!",
+        data: null
+    })
+})
+
 export const TRController = {
     createTR,
     createMultipleTR,
     getTRsByBookingDate,
     getTR,
     updateTR,
-    updateTRPaymentStatus
+    updateTRPaymentStatus,
+    deleteTR
 }

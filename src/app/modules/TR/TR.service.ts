@@ -160,6 +160,10 @@ const updateTR = async (tr: string, payload: Partial<TTR>) => {
         throw new AppError(404, "TR Not Found!")
     }
 
+    if (payload.TRID) {
+        payload.TRID = payload.TRID.toString().padStart(6, '0')
+    }
+
     if (payload.shopName) {
         const isExistShop = await prisma.shop.findFirst({
             where: {
@@ -220,6 +224,20 @@ const updateTRPaymentStatus = async (trs: string[]) => {
         return sum
     }, 0)
 
+    const findAlreadyPaidTR = await prisma.tR.findMany({
+        where: {
+            TRID: {
+                in: roundedTRS,
+            },
+            paymentStatus: true
+        }
+    });
+
+    if (findAlreadyPaidTR.length > 0) {
+        const onlyPaidTR = findAlreadyPaidTR.map((tr) => tr.TRID)
+        throw new AppError(403, `Those TR is already Paid "${onlyPaidTR}"`)
+    }
+
     const updateTR = await prisma.tR.updateMany({
         where: {
             TRID: {
@@ -235,11 +253,32 @@ const updateTRPaymentStatus = async (trs: string[]) => {
 
 };
 
+const deleteTR = async (trid: string) => {
+    const roundedTR = trid.toString().padStart(6, '0')
+    const isExistTR = await prisma.tR.findUnique({
+        where: {
+            TRID: roundedTR
+        }
+    })
+
+    if (!isExistTR) {
+        throw new AppError(404, "TR Not found")
+    }
+
+    const res = await prisma.tR.delete({
+        where: {
+            TRID: roundedTR
+        }
+    })
+    return res
+}
+
 export const TRService = {
     createTR,
     createMultipleTR,
     getTRsByBookingDate,
     getTR,
     updateTR,
-    updateTRPaymentStatus
+    updateTRPaymentStatus,
+    deleteTR
 }

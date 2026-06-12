@@ -2,7 +2,7 @@ import z from "zod";
 
 const createTRValidationSchema = z.object({
     TRID: z
-        .number()
+        .string()
         .min(1, { message: "TRID is required" }),
 
     shopName: z
@@ -41,8 +41,8 @@ const updateTRValidationSchema = z.object({
         .min(1, { message: "ShopId is required" })
         .optional(),
 
-    Quantity: z
-        .string()
+    quantity: z
+        .number()
         .optional(),
 
     paymentStatus: z.boolean().optional(),
