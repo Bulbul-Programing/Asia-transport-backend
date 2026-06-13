@@ -1,7 +1,7 @@
 import { Server } from "http";
-import app from "./app";
-import { envVars } from "./app/envConfig";
-import { setupGracefulShutdown } from "./app/middleware/shutdown";
+import app from "./app.js";
+import { envVars } from "./app/envConfig/index.js";
+import { setupGracefulShutdown } from "./app/middleware/shutdown.js";
 
 let server: Server
 async function mainFunction() {

@@ -1,4 +1,4 @@
-import { Prisma } from "../../../prisma/generated/prisma/client";
+import { Prisma } from "../../../prisma/generated/prisma/client.js";
 
 export const handlePrismaClientError = (err: Prisma.PrismaClientKnownRequestError) => {
     let message = 'Database Error Occurred!';

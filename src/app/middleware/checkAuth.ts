@@ -1,11 +1,11 @@
 import { NextFunction, Request, Response } from "express";
 import httpStatus from "http-status-codes";
 import { JwtPayload } from "jsonwebtoken";
-import { envVars } from "../envConfig";
-import { UserRole } from "../modules/user/user.interface";
-import { prisma } from "../DBConfig/db";
-import { verifyToken } from "../utils/jwtToken";
-import AppError from "./AppError";
+import { envVars } from "../envConfig/index.js";
+import { UserRole } from "../modules/user/user.interface.js";
+import { prisma } from "../DBConfig/db.js";
+import { verifyToken } from "../utils/jwtToken.js";
+import AppError from "./AppError.js";
 
 export type decodedPayload = {
     userId: string,

@@ -1,4 +1,4 @@
-import { prisma } from "../../DBConfig/db"
+import { prisma } from "../../DBConfig/db.js"
 
 
 

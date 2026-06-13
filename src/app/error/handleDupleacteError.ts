@@ -1,4 +1,4 @@
-import { TErrorSource, TGenericErrorResponse } from "../types/error.type"
+import { TErrorSource, TGenericErrorResponse } from "../types/error.type.js"
 
 
 

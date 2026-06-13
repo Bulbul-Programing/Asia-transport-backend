@@ -2,9 +2,9 @@ import express, { Application, Request, Response } from 'express';
 import cors from 'cors';
 import 'dotenv/config'
 import cookieParser from 'cookie-parser';
-import { envVars } from './app/envConfig';
-import router from './app/router';
-import globalErrorHandler from './app/middleware/globalErrorHandler';
+import { envVars } from './app/envConfig/index.js';
+import router from './app/router/index.js';
+import globalErrorHandler from './app/middleware/globalErrorHandler.js';
 
 const app: Application = express()
 

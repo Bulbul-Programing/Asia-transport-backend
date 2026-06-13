@@ -1,5 +1,5 @@
-import { envVars } from "../envConfig"
-import { generateToken } from "./jwt"
+import { envVars } from "../envConfig/index.js"
+import { generateToken } from "./jwt.js"
 
 
 export const createUserTokens = (payload: { id: string, email: string, role: string }) => {

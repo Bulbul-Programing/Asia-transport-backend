@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
-import catchAsync from "../../utils/catchAsync";
-import { userService } from "./user.service";
-import { sendResponse } from "../../utils/sendResponse";
+import catchAsync from "../../utils/catchAsync.js";
+import { userService } from "./user.service.js";
+import { sendResponse } from "../../utils/sendResponse.js";
 
 const createUser = catchAsync(async (req: Request, res: Response) => {
     const userInfo = req.body

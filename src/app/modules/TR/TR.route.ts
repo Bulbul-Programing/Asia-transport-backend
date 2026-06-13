@@ -1,7 +1,7 @@
 import express from 'express';
-import { arrayOfObjectValidateRequest, validateRequest } from '../../middleware/validateRequest';
-import { TRValidationSchema } from './TR.Validation';
-import { TRController } from './TR.controller';
+import { arrayOfObjectValidateRequest, validateRequest } from '../../middleware/validateRequest.js';
+import { TRValidationSchema } from './TR.Validation.js';
+import { TRController } from './TR.controller.js';
 
 const router = express.Router()
 

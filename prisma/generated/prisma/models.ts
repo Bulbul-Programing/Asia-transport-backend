@@ -8,10 +8,10 @@
  *
  * 🟢 You can import this file directly.
  */
-export type * from './models/TR'
-export type * from './models/dailyCollection'
-export type * from './models/DailyExpense'
-export type * from './models/partyLes'
-export type * from './models/Shop'
-export type * from './models/User'
-export type * from './commonInputTypes'
+export type * from './models/TR.js'
+export type * from './models/dailyCollection.js'
+export type * from './models/DailyExpense.js'
+export type * from './models/partyLes.js'
+export type * from './models/Shop.js'
+export type * from './models/User.js'
+export type * from './commonInputTypes.js'

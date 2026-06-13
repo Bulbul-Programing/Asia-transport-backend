@@ -1,10 +1,10 @@
 import bcrypt from "bcryptjs";
-import { prisma } from "../../DBConfig/db";
-import AppError from "../../middleware/AppError";
-import { TUser, UserRole } from "./user.interface";
-import { envVars } from "../../envConfig";
-import { paginationCalculation } from "../../utils/paginationCalculation";
-import QueryBuilder from "../../builder/QueryBuilder";
+import { prisma } from "../../DBConfig/db.js";
+import AppError from "../../middleware/AppError.js";
+import { TUser, UserRole } from "./user.interface.js";
+import { envVars } from "../../envConfig/index.js";
+import { paginationCalculation } from "../../utils/paginationCalculation.js";
+import QueryBuilder from "../../builder/QueryBuilder.js";
 
 
 const createUser = async (payload: TUser) => {

@@ -1,8 +1,8 @@
 import express from 'express';
-import { userRoute } from '../modules/user/user.route';
-import { TRRouter } from '../modules/TR/TR.route';
-import { authRouter } from '../modules/Auth/auth.routes';
-import { shopRouter } from '../modules/Shop/shop.route';
+import { userRoute } from '../modules/user/user.route.js';
+import { TRRouter } from '../modules/TR/TR.route.js';
+import { authRouter } from '../modules/Auth/auth.routes.js';
+import { shopRouter } from '../modules/Shop/shop.route.js';
 
 type TModuleRoute = {
     path: string,

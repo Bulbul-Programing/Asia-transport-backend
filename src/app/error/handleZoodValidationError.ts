@@ -1,5 +1,5 @@
 import { ZodError, type ZodIssue } from "zod";
-import { TErrorSource, TGenericErrorResponse } from "../types/error.type";
+import { TErrorSource, TGenericErrorResponse } from "../types/error.type.js";
 
 const handleZodError = (err : ZodError) : TGenericErrorResponse => {
     const statusCode = 400

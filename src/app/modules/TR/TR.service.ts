@@ -1,8 +1,8 @@
-import QueryBuilder from "../../builder/QueryBuilder";
-import { prisma } from "../../DBConfig/db";
-import AppError from "../../middleware/AppError";
-import { paginationCalculation } from "../../utils/paginationCalculation";
-import { TTR } from "./TR.interface";
+import QueryBuilder from "../../builder/QueryBuilder.js";
+import { prisma } from "../../DBConfig/db.js";
+import AppError from "../../middleware/AppError.js";
+import { paginationCalculation } from "../../utils/paginationCalculation.js";
+import { TTR } from "./TR.interface.js";
 
 
 const createTR = async (payload: TTR) => {
@@ -53,7 +53,7 @@ const createTR = async (payload: TTR) => {
 }
 
 const createMultipleTR = async (payloads: TTR[]) => {
-    return await prisma.$transaction(async (tx) => {
+    return await prisma.$transaction(async (tx : any) => {
         const results = [];
 
         for (const payload of payloads) {

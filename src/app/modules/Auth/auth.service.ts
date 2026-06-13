@@ -1,7 +1,7 @@
-import { prisma } from "../../DBConfig/db";
-import AppError from "../../error/AppError"
+import { prisma } from "../../DBConfig/db.js";
+import AppError from "../../error/AppError.js"
 import bcrypt from 'bcryptjs';
-import { createUserTokens } from "../../utils/userToken";
+import { createUserTokens } from "../../utils/userToken.js";
 
 const loginUser = async (payload: { email: string, password: string }) => {
     const isUserExist = await prisma.user.findUnique({

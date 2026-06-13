@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
-import catchAsync from "../../utils/catchAsync";
-import { TRService } from "./TR.service";
-import { sendResponse } from "../../utils/sendResponse";
-import AppError from "../../middleware/AppError";
+import catchAsync from "../../utils/catchAsync.js";
+import { TRService } from "./TR.service.js";
+import { sendResponse } from "../../utils/sendResponse.js";
+import AppError from "../../middleware/AppError.js";
 
 
 const createTR = catchAsync(async (req: Request, res: Response) => {

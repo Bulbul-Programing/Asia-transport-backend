@@ -1,8 +1,8 @@
 import { NextFunction, Request, Response } from "express";
-import catchAsync from "../../utils/catchAsync";
-import { authService } from "./auth.service";
-import { sendResponse } from "../../utils/sendResponse";
-import { setAuthCookie } from "../../utils/setCookie";
+import catchAsync from "../../utils/catchAsync.js";
+import { authService } from "./auth.service.js";
+import { sendResponse } from "../../utils/sendResponse.js";
+import { setAuthCookie } from "../../utils/setCookie.js";
 
 const loginUser = catchAsync(async (req: Request, res: Response) => {
     const userCredential = req.body
