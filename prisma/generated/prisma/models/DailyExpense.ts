@@ -30,6 +30,7 @@ export type DailyExpenseAvgAggregateOutputType = {
   labourSalary: number | null
   officeCost: number | null
   carRent: number | null
+  carNumber: number | null
   vanRepair: number | null
   mobileBill: number | null
   transportationCost: number | null
@@ -48,6 +49,7 @@ export type DailyExpenseSumAggregateOutputType = {
   labourSalary: number | null
   officeCost: number | null
   carRent: number | null
+  carNumber: number | null
   vanRepair: number | null
   mobileBill: number | null
   transportationCost: number | null
@@ -68,6 +70,7 @@ export type DailyExpenseMinAggregateOutputType = {
   labourSalary: number | null
   officeCost: number | null
   carRent: number | null
+  carNumber: number | null
   vanRepair: number | null
   mobileBill: number | null
   transportationCost: number | null
@@ -90,6 +93,7 @@ export type DailyExpenseMaxAggregateOutputType = {
   labourSalary: number | null
   officeCost: number | null
   carRent: number | null
+  carNumber: number | null
   vanRepair: number | null
   mobileBill: number | null
   transportationCost: number | null
@@ -112,6 +116,7 @@ export type DailyExpenseCountAggregateOutputType = {
   labourSalary: number
   officeCost: number
   carRent: number
+  carNumber: number
   vanRepair: number
   mobileBill: number
   transportationCost: number
@@ -134,6 +139,7 @@ export type DailyExpenseAvgAggregateInputType = {
   labourSalary?: true
   officeCost?: true
   carRent?: true
+  carNumber?: true
   vanRepair?: true
   mobileBill?: true
   transportationCost?: true
@@ -152,6 +158,7 @@ export type DailyExpenseSumAggregateInputType = {
   labourSalary?: true
   officeCost?: true
   carRent?: true
+  carNumber?: true
   vanRepair?: true
   mobileBill?: true
   transportationCost?: true
@@ -172,6 +179,7 @@ export type DailyExpenseMinAggregateInputType = {
   labourSalary?: true
   officeCost?: true
   carRent?: true
+  carNumber?: true
   vanRepair?: true
   mobileBill?: true
   transportationCost?: true
@@ -194,6 +202,7 @@ export type DailyExpenseMaxAggregateInputType = {
   labourSalary?: true
   officeCost?: true
   carRent?: true
+  carNumber?: true
   vanRepair?: true
   mobileBill?: true
   transportationCost?: true
@@ -216,6 +225,7 @@ export type DailyExpenseCountAggregateInputType = {
   labourSalary?: true
   officeCost?: true
   carRent?: true
+  carNumber?: true
   vanRepair?: true
   mobileBill?: true
   transportationCost?: true
@@ -325,6 +335,7 @@ export type DailyExpenseGroupByOutputType = {
   labourSalary: number
   officeCost: number
   carRent: number | null
+  carNumber: number | null
   vanRepair: number | null
   mobileBill: number | null
   transportationCost: number | null
@@ -370,6 +381,7 @@ export type DailyExpenseWhereInput = {
   labourSalary?: Prisma.FloatFilter<"DailyExpense"> | number
   officeCost?: Prisma.FloatFilter<"DailyExpense"> | number
   carRent?: Prisma.FloatNullableFilter<"DailyExpense"> | number | null
+  carNumber?: Prisma.FloatNullableFilter<"DailyExpense"> | number | null
   vanRepair?: Prisma.FloatNullableFilter<"DailyExpense"> | number | null
   mobileBill?: Prisma.FloatNullableFilter<"DailyExpense"> | number | null
   transportationCost?: Prisma.FloatNullableFilter<"DailyExpense"> | number | null
@@ -393,6 +405,7 @@ export type DailyExpenseOrderByWithRelationInput = {
   labourSalary?: Prisma.SortOrder
   officeCost?: Prisma.SortOrder
   carRent?: Prisma.SortOrderInput | Prisma.SortOrder
+  carNumber?: Prisma.SortOrderInput | Prisma.SortOrder
   vanRepair?: Prisma.SortOrderInput | Prisma.SortOrder
   mobileBill?: Prisma.SortOrderInput | Prisma.SortOrder
   transportationCost?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -419,6 +432,7 @@ export type DailyExpenseWhereUniqueInput = Prisma.AtLeast<{
   labourSalary?: Prisma.FloatFilter<"DailyExpense"> | number
   officeCost?: Prisma.FloatFilter<"DailyExpense"> | number
   carRent?: Prisma.FloatNullableFilter<"DailyExpense"> | number | null
+  carNumber?: Prisma.FloatNullableFilter<"DailyExpense"> | number | null
   vanRepair?: Prisma.FloatNullableFilter<"DailyExpense"> | number | null
   mobileBill?: Prisma.FloatNullableFilter<"DailyExpense"> | number | null
   transportationCost?: Prisma.FloatNullableFilter<"DailyExpense"> | number | null
@@ -442,6 +456,7 @@ export type DailyExpenseOrderByWithAggregationInput = {
   labourSalary?: Prisma.SortOrder
   officeCost?: Prisma.SortOrder
   carRent?: Prisma.SortOrderInput | Prisma.SortOrder
+  carNumber?: Prisma.SortOrderInput | Prisma.SortOrder
   vanRepair?: Prisma.SortOrderInput | Prisma.SortOrder
   mobileBill?: Prisma.SortOrderInput | Prisma.SortOrder
   transportationCost?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -472,6 +487,7 @@ export type DailyExpenseScalarWhereWithAggregatesInput = {
   labourSalary?: Prisma.FloatWithAggregatesFilter<"DailyExpense"> | number
   officeCost?: Prisma.FloatWithAggregatesFilter<"DailyExpense"> | number
   carRent?: Prisma.FloatNullableWithAggregatesFilter<"DailyExpense"> | number | null
+  carNumber?: Prisma.FloatNullableWithAggregatesFilter<"DailyExpense"> | number | null
   vanRepair?: Prisma.FloatNullableWithAggregatesFilter<"DailyExpense"> | number | null
   mobileBill?: Prisma.FloatNullableWithAggregatesFilter<"DailyExpense"> | number | null
   transportationCost?: Prisma.FloatNullableWithAggregatesFilter<"DailyExpense"> | number | null
@@ -494,6 +510,7 @@ export type DailyExpenseCreateInput = {
   labourSalary: number
   officeCost: number
   carRent?: number | null
+  carNumber?: number | null
   vanRepair?: number | null
   mobileBill?: number | null
   transportationCost?: number | null
@@ -517,6 +534,7 @@ export type DailyExpenseUncheckedCreateInput = {
   labourSalary: number
   officeCost: number
   carRent?: number | null
+  carNumber?: number | null
   vanRepair?: number | null
   mobileBill?: number | null
   transportationCost?: number | null
@@ -540,6 +558,7 @@ export type DailyExpenseUpdateInput = {
   labourSalary?: Prisma.FloatFieldUpdateOperationsInput | number
   officeCost?: Prisma.FloatFieldUpdateOperationsInput | number
   carRent?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  carNumber?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   vanRepair?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   mobileBill?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   transportationCost?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
@@ -563,6 +582,7 @@ export type DailyExpenseUncheckedUpdateInput = {
   labourSalary?: Prisma.FloatFieldUpdateOperationsInput | number
   officeCost?: Prisma.FloatFieldUpdateOperationsInput | number
   carRent?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  carNumber?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   vanRepair?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   mobileBill?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   transportationCost?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
@@ -586,6 +606,7 @@ export type DailyExpenseCreateManyInput = {
   labourSalary: number
   officeCost: number
   carRent?: number | null
+  carNumber?: number | null
   vanRepair?: number | null
   mobileBill?: number | null
   transportationCost?: number | null
@@ -608,6 +629,7 @@ export type DailyExpenseUpdateManyMutationInput = {
   labourSalary?: Prisma.FloatFieldUpdateOperationsInput | number
   officeCost?: Prisma.FloatFieldUpdateOperationsInput | number
   carRent?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  carNumber?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   vanRepair?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   mobileBill?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   transportationCost?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
@@ -630,6 +652,7 @@ export type DailyExpenseUncheckedUpdateManyInput = {
   labourSalary?: Prisma.FloatFieldUpdateOperationsInput | number
   officeCost?: Prisma.FloatFieldUpdateOperationsInput | number
   carRent?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  carNumber?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   vanRepair?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   mobileBill?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   transportationCost?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
@@ -652,6 +675,7 @@ export type DailyExpenseCountOrderByAggregateInput = {
   labourSalary?: Prisma.SortOrder
   officeCost?: Prisma.SortOrder
   carRent?: Prisma.SortOrder
+  carNumber?: Prisma.SortOrder
   vanRepair?: Prisma.SortOrder
   mobileBill?: Prisma.SortOrder
   transportationCost?: Prisma.SortOrder
@@ -672,6 +696,7 @@ export type DailyExpenseAvgOrderByAggregateInput = {
   labourSalary?: Prisma.SortOrder
   officeCost?: Prisma.SortOrder
   carRent?: Prisma.SortOrder
+  carNumber?: Prisma.SortOrder
   vanRepair?: Prisma.SortOrder
   mobileBill?: Prisma.SortOrder
   transportationCost?: Prisma.SortOrder
@@ -692,6 +717,7 @@ export type DailyExpenseMaxOrderByAggregateInput = {
   labourSalary?: Prisma.SortOrder
   officeCost?: Prisma.SortOrder
   carRent?: Prisma.SortOrder
+  carNumber?: Prisma.SortOrder
   vanRepair?: Prisma.SortOrder
   mobileBill?: Prisma.SortOrder
   transportationCost?: Prisma.SortOrder
@@ -714,6 +740,7 @@ export type DailyExpenseMinOrderByAggregateInput = {
   labourSalary?: Prisma.SortOrder
   officeCost?: Prisma.SortOrder
   carRent?: Prisma.SortOrder
+  carNumber?: Prisma.SortOrder
   vanRepair?: Prisma.SortOrder
   mobileBill?: Prisma.SortOrder
   transportationCost?: Prisma.SortOrder
@@ -734,6 +761,7 @@ export type DailyExpenseSumOrderByAggregateInput = {
   labourSalary?: Prisma.SortOrder
   officeCost?: Prisma.SortOrder
   carRent?: Prisma.SortOrder
+  carNumber?: Prisma.SortOrder
   vanRepair?: Prisma.SortOrder
   mobileBill?: Prisma.SortOrder
   transportationCost?: Prisma.SortOrder
@@ -781,6 +809,7 @@ export type DailyExpenseCreateWithoutPartyLesInput = {
   labourSalary: number
   officeCost: number
   carRent?: number | null
+  carNumber?: number | null
   vanRepair?: number | null
   mobileBill?: number | null
   transportationCost?: number | null
@@ -803,6 +832,7 @@ export type DailyExpenseUncheckedCreateWithoutPartyLesInput = {
   labourSalary: number
   officeCost: number
   carRent?: number | null
+  carNumber?: number | null
   vanRepair?: number | null
   mobileBill?: number | null
   transportationCost?: number | null
@@ -841,6 +871,7 @@ export type DailyExpenseUpdateWithoutPartyLesInput = {
   labourSalary?: Prisma.FloatFieldUpdateOperationsInput | number
   officeCost?: Prisma.FloatFieldUpdateOperationsInput | number
   carRent?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  carNumber?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   vanRepair?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   mobileBill?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   transportationCost?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
@@ -863,6 +894,7 @@ export type DailyExpenseUncheckedUpdateWithoutPartyLesInput = {
   labourSalary?: Prisma.FloatFieldUpdateOperationsInput | number
   officeCost?: Prisma.FloatFieldUpdateOperationsInput | number
   carRent?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  carNumber?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   vanRepair?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   mobileBill?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   transportationCost?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
@@ -916,6 +948,7 @@ export type DailyExpenseSelect<ExtArgs extends runtime.Types.Extensions.Internal
   labourSalary?: boolean
   officeCost?: boolean
   carRent?: boolean
+  carNumber?: boolean
   vanRepair?: boolean
   mobileBill?: boolean
   transportationCost?: boolean
@@ -940,6 +973,7 @@ export type DailyExpenseSelectCreateManyAndReturn<ExtArgs extends runtime.Types.
   labourSalary?: boolean
   officeCost?: boolean
   carRent?: boolean
+  carNumber?: boolean
   vanRepair?: boolean
   mobileBill?: boolean
   transportationCost?: boolean
@@ -962,6 +996,7 @@ export type DailyExpenseSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.
   labourSalary?: boolean
   officeCost?: boolean
   carRent?: boolean
+  carNumber?: boolean
   vanRepair?: boolean
   mobileBill?: boolean
   transportationCost?: boolean
@@ -984,6 +1019,7 @@ export type DailyExpenseSelectScalar = {
   labourSalary?: boolean
   officeCost?: boolean
   carRent?: boolean
+  carNumber?: boolean
   vanRepair?: boolean
   mobileBill?: boolean
   transportationCost?: boolean
@@ -1000,7 +1036,7 @@ export type DailyExpenseSelectScalar = {
   updateAt?: boolean
 }
 
-export type DailyExpenseOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "date" | "labourSalary" | "officeCost" | "carRent" | "vanRepair" | "mobileBill" | "transportationCost" | "managerSalary" | "stationery" | "securitySalary" | "donation" | "compensation" | "bkashBill" | "electricityBill" | "officeRent" | "misc" | "createdAt" | "updateAt", ExtArgs["result"]["dailyExpense"]>
+export type DailyExpenseOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "date" | "labourSalary" | "officeCost" | "carRent" | "carNumber" | "vanRepair" | "mobileBill" | "transportationCost" | "managerSalary" | "stationery" | "securitySalary" | "donation" | "compensation" | "bkashBill" | "electricityBill" | "officeRent" | "misc" | "createdAt" | "updateAt", ExtArgs["result"]["dailyExpense"]>
 export type DailyExpenseInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   partyLes?: boolean | Prisma.DailyExpense$partyLesArgs<ExtArgs>
   _count?: boolean | Prisma.DailyExpenseCountOutputTypeDefaultArgs<ExtArgs>
@@ -1019,6 +1055,7 @@ export type $DailyExpensePayload<ExtArgs extends runtime.Types.Extensions.Intern
     labourSalary: number
     officeCost: number
     carRent: number | null
+    carNumber: number | null
     vanRepair: number | null
     mobileBill: number | null
     transportationCost: number | null
@@ -1462,6 +1499,7 @@ export interface DailyExpenseFieldRefs {
   readonly labourSalary: Prisma.FieldRef<"DailyExpense", 'Float'>
   readonly officeCost: Prisma.FieldRef<"DailyExpense", 'Float'>
   readonly carRent: Prisma.FieldRef<"DailyExpense", 'Float'>
+  readonly carNumber: Prisma.FieldRef<"DailyExpense", 'Float'>
   readonly vanRepair: Prisma.FieldRef<"DailyExpense", 'Float'>
   readonly mobileBill: Prisma.FieldRef<"DailyExpense", 'Float'>
   readonly transportationCost: Prisma.FieldRef<"DailyExpense", 'Float'>

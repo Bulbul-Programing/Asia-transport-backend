@@ -928,6 +928,7 @@ export const DailyExpenseScalarFieldEnum = {
   labourSalary: 'labourSalary',
   officeCost: 'officeCost',
   carRent: 'carRent',
+  carNumber: 'carNumber',
   vanRepair: 'vanRepair',
   mobileBill: 'mobileBill',
   transportationCost: 'transportationCost',
@@ -949,7 +950,7 @@ export type DailyExpenseScalarFieldEnum = (typeof DailyExpenseScalarFieldEnum)[k
 
 export const PartyLesScalarFieldEnum = {
   id: 'id',
-  whichDay: 'whichDay',
+  expenseId: 'expenseId',
   TR: 'TR',
   totalAmount: 'totalAmount',
   discountAmount: 'discountAmount',

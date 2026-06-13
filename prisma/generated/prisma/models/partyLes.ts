@@ -38,7 +38,7 @@ export type PartyLesSumAggregateOutputType = {
 
 export type PartyLesMinAggregateOutputType = {
   id: string | null
-  whichDay: string | null
+  expenseId: string | null
   TR: string | null
   totalAmount: number | null
   discountAmount: number | null
@@ -49,7 +49,7 @@ export type PartyLesMinAggregateOutputType = {
 
 export type PartyLesMaxAggregateOutputType = {
   id: string | null
-  whichDay: string | null
+  expenseId: string | null
   TR: string | null
   totalAmount: number | null
   discountAmount: number | null
@@ -60,7 +60,7 @@ export type PartyLesMaxAggregateOutputType = {
 
 export type PartyLesCountAggregateOutputType = {
   id: number
-  whichDay: number
+  expenseId: number
   TR: number
   totalAmount: number
   discountAmount: number
@@ -83,7 +83,7 @@ export type PartyLesSumAggregateInputType = {
 
 export type PartyLesMinAggregateInputType = {
   id?: true
-  whichDay?: true
+  expenseId?: true
   TR?: true
   totalAmount?: true
   discountAmount?: true
@@ -94,7 +94,7 @@ export type PartyLesMinAggregateInputType = {
 
 export type PartyLesMaxAggregateInputType = {
   id?: true
-  whichDay?: true
+  expenseId?: true
   TR?: true
   totalAmount?: true
   discountAmount?: true
@@ -105,7 +105,7 @@ export type PartyLesMaxAggregateInputType = {
 
 export type PartyLesCountAggregateInputType = {
   id?: true
-  whichDay?: true
+  expenseId?: true
   TR?: true
   totalAmount?: true
   discountAmount?: true
@@ -203,7 +203,7 @@ export type partyLesGroupByArgs<ExtArgs extends runtime.Types.Extensions.Interna
 
 export type PartyLesGroupByOutputType = {
   id: string
-  whichDay: string
+  expenseId: string
   TR: string
   totalAmount: number
   discountAmount: number
@@ -237,7 +237,7 @@ export type partyLesWhereInput = {
   OR?: Prisma.partyLesWhereInput[]
   NOT?: Prisma.partyLesWhereInput | Prisma.partyLesWhereInput[]
   id?: Prisma.StringFilter<"partyLes"> | string
-  whichDay?: Prisma.StringFilter<"partyLes"> | string
+  expenseId?: Prisma.StringFilter<"partyLes"> | string
   TR?: Prisma.StringFilter<"partyLes"> | string
   totalAmount?: Prisma.IntFilter<"partyLes"> | number
   discountAmount?: Prisma.IntFilter<"partyLes"> | number
@@ -250,7 +250,7 @@ export type partyLesWhereInput = {
 
 export type partyLesOrderByWithRelationInput = {
   id?: Prisma.SortOrder
-  whichDay?: Prisma.SortOrder
+  expenseId?: Prisma.SortOrder
   TR?: Prisma.SortOrder
   totalAmount?: Prisma.SortOrder
   discountAmount?: Prisma.SortOrder
@@ -267,7 +267,7 @@ export type partyLesWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.partyLesWhereInput | Prisma.partyLesWhereInput[]
   OR?: Prisma.partyLesWhereInput[]
   NOT?: Prisma.partyLesWhereInput | Prisma.partyLesWhereInput[]
-  whichDay?: Prisma.StringFilter<"partyLes"> | string
+  expenseId?: Prisma.StringFilter<"partyLes"> | string
   totalAmount?: Prisma.IntFilter<"partyLes"> | number
   discountAmount?: Prisma.IntFilter<"partyLes"> | number
   note?: Prisma.StringFilter<"partyLes"> | string
@@ -279,7 +279,7 @@ export type partyLesWhereUniqueInput = Prisma.AtLeast<{
 
 export type partyLesOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
-  whichDay?: Prisma.SortOrder
+  expenseId?: Prisma.SortOrder
   TR?: Prisma.SortOrder
   totalAmount?: Prisma.SortOrder
   discountAmount?: Prisma.SortOrder
@@ -298,7 +298,7 @@ export type partyLesScalarWhereWithAggregatesInput = {
   OR?: Prisma.partyLesScalarWhereWithAggregatesInput[]
   NOT?: Prisma.partyLesScalarWhereWithAggregatesInput | Prisma.partyLesScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"partyLes"> | string
-  whichDay?: Prisma.StringWithAggregatesFilter<"partyLes"> | string
+  expenseId?: Prisma.StringWithAggregatesFilter<"partyLes"> | string
   TR?: Prisma.StringWithAggregatesFilter<"partyLes"> | string
   totalAmount?: Prisma.IntWithAggregatesFilter<"partyLes"> | number
   discountAmount?: Prisma.IntWithAggregatesFilter<"partyLes"> | number
@@ -320,7 +320,7 @@ export type partyLesCreateInput = {
 
 export type partyLesUncheckedCreateInput = {
   id?: string
-  whichDay: string
+  expenseId: string
   TR: string
   totalAmount: number
   discountAmount: number
@@ -342,7 +342,7 @@ export type partyLesUpdateInput = {
 
 export type partyLesUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  whichDay?: Prisma.StringFieldUpdateOperationsInput | string
+  expenseId?: Prisma.StringFieldUpdateOperationsInput | string
   TR?: Prisma.StringFieldUpdateOperationsInput | string
   totalAmount?: Prisma.IntFieldUpdateOperationsInput | number
   discountAmount?: Prisma.IntFieldUpdateOperationsInput | number
@@ -353,7 +353,7 @@ export type partyLesUncheckedUpdateInput = {
 
 export type partyLesCreateManyInput = {
   id?: string
-  whichDay: string
+  expenseId: string
   TR: string
   totalAmount: number
   discountAmount: number
@@ -373,7 +373,7 @@ export type partyLesUpdateManyMutationInput = {
 
 export type partyLesUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  whichDay?: Prisma.StringFieldUpdateOperationsInput | string
+  expenseId?: Prisma.StringFieldUpdateOperationsInput | string
   TR?: Prisma.StringFieldUpdateOperationsInput | string
   totalAmount?: Prisma.IntFieldUpdateOperationsInput | number
   discountAmount?: Prisma.IntFieldUpdateOperationsInput | number
@@ -394,7 +394,7 @@ export type partyLesOrderByRelationAggregateInput = {
 
 export type partyLesCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  whichDay?: Prisma.SortOrder
+  expenseId?: Prisma.SortOrder
   TR?: Prisma.SortOrder
   totalAmount?: Prisma.SortOrder
   discountAmount?: Prisma.SortOrder
@@ -410,7 +410,7 @@ export type partyLesAvgOrderByAggregateInput = {
 
 export type partyLesMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  whichDay?: Prisma.SortOrder
+  expenseId?: Prisma.SortOrder
   TR?: Prisma.SortOrder
   totalAmount?: Prisma.SortOrder
   discountAmount?: Prisma.SortOrder
@@ -421,7 +421,7 @@ export type partyLesMaxOrderByAggregateInput = {
 
 export type partyLesMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  whichDay?: Prisma.SortOrder
+  expenseId?: Prisma.SortOrder
   TR?: Prisma.SortOrder
   totalAmount?: Prisma.SortOrder
   discountAmount?: Prisma.SortOrder
@@ -531,7 +531,7 @@ export type partyLesCreateWithoutTrInput = {
 
 export type partyLesUncheckedCreateWithoutTrInput = {
   id?: string
-  whichDay: string
+  expenseId: string
   totalAmount: number
   discountAmount: number
   note: string
@@ -570,7 +570,7 @@ export type partyLesScalarWhereInput = {
   OR?: Prisma.partyLesScalarWhereInput[]
   NOT?: Prisma.partyLesScalarWhereInput | Prisma.partyLesScalarWhereInput[]
   id?: Prisma.StringFilter<"partyLes"> | string
-  whichDay?: Prisma.StringFilter<"partyLes"> | string
+  expenseId?: Prisma.StringFilter<"partyLes"> | string
   TR?: Prisma.StringFilter<"partyLes"> | string
   totalAmount?: Prisma.IntFilter<"partyLes"> | number
   discountAmount?: Prisma.IntFilter<"partyLes"> | number
@@ -627,7 +627,7 @@ export type partyLesUpdateManyWithWhereWithoutCollectionDateInput = {
 
 export type partyLesCreateManyTrInput = {
   id?: string
-  whichDay: string
+  expenseId: string
   totalAmount: number
   discountAmount: number
   note: string
@@ -647,7 +647,7 @@ export type partyLesUpdateWithoutTrInput = {
 
 export type partyLesUncheckedUpdateWithoutTrInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  whichDay?: Prisma.StringFieldUpdateOperationsInput | string
+  expenseId?: Prisma.StringFieldUpdateOperationsInput | string
   totalAmount?: Prisma.IntFieldUpdateOperationsInput | number
   discountAmount?: Prisma.IntFieldUpdateOperationsInput | number
   note?: Prisma.StringFieldUpdateOperationsInput | string
@@ -657,7 +657,7 @@ export type partyLesUncheckedUpdateWithoutTrInput = {
 
 export type partyLesUncheckedUpdateManyWithoutTrInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  whichDay?: Prisma.StringFieldUpdateOperationsInput | string
+  expenseId?: Prisma.StringFieldUpdateOperationsInput | string
   totalAmount?: Prisma.IntFieldUpdateOperationsInput | number
   discountAmount?: Prisma.IntFieldUpdateOperationsInput | number
   note?: Prisma.StringFieldUpdateOperationsInput | string
@@ -709,7 +709,7 @@ export type partyLesUncheckedUpdateManyWithoutCollectionDateInput = {
 
 export type partyLesSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  whichDay?: boolean
+  expenseId?: boolean
   TR?: boolean
   totalAmount?: boolean
   discountAmount?: boolean
@@ -722,7 +722,7 @@ export type partyLesSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs
 
 export type partyLesSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  whichDay?: boolean
+  expenseId?: boolean
   TR?: boolean
   totalAmount?: boolean
   discountAmount?: boolean
@@ -735,7 +735,7 @@ export type partyLesSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exte
 
 export type partyLesSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  whichDay?: boolean
+  expenseId?: boolean
   TR?: boolean
   totalAmount?: boolean
   discountAmount?: boolean
@@ -748,7 +748,7 @@ export type partyLesSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exte
 
 export type partyLesSelectScalar = {
   id?: boolean
-  whichDay?: boolean
+  expenseId?: boolean
   TR?: boolean
   totalAmount?: boolean
   discountAmount?: boolean
@@ -757,7 +757,7 @@ export type partyLesSelectScalar = {
   updatedAt?: boolean
 }
 
-export type partyLesOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "whichDay" | "TR" | "totalAmount" | "discountAmount" | "note" | "createdAt" | "updatedAt", ExtArgs["result"]["partyLes"]>
+export type partyLesOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "expenseId" | "TR" | "totalAmount" | "discountAmount" | "note" | "createdAt" | "updatedAt", ExtArgs["result"]["partyLes"]>
 export type partyLesInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   collectionDate?: boolean | Prisma.DailyExpenseDefaultArgs<ExtArgs>
   tr?: boolean | Prisma.partyLes$trArgs<ExtArgs>
@@ -779,7 +779,7 @@ export type $partyLesPayload<ExtArgs extends runtime.Types.Extensions.InternalAr
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
-    whichDay: string
+    expenseId: string
     TR: string
     totalAmount: number
     discountAmount: number
@@ -1212,7 +1212,7 @@ export interface Prisma__partyLesClient<T, Null = never, ExtArgs extends runtime
  */
 export interface partyLesFieldRefs {
   readonly id: Prisma.FieldRef<"partyLes", 'String'>
-  readonly whichDay: Prisma.FieldRef<"partyLes", 'String'>
+  readonly expenseId: Prisma.FieldRef<"partyLes", 'String'>
   readonly TR: Prisma.FieldRef<"partyLes", 'String'>
   readonly totalAmount: Prisma.FieldRef<"partyLes", 'Int'>
   readonly discountAmount: Prisma.FieldRef<"partyLes", 'Int'>

@@ -3,6 +3,7 @@ import { userRoute } from '../modules/user/user.route.js';
 import { TRRouter } from '../modules/TR/TR.route.js';
 import { authRouter } from '../modules/Auth/auth.routes.js';
 import { shopRouter } from '../modules/Shop/shop.route.js';
+import { DailyExpenseRoutes } from '../modules/DailyExpense/DailyExpense.route.js';
 
 type TModuleRoute = {
     path: string,
@@ -27,6 +28,10 @@ const moduleRoutes: TModuleRoute[] = [
     {
         path: '/shop',
         route: shopRouter
+    },
+    {
+        path: '/dailyExpense',
+        route: DailyExpenseRoutes
     },
 ]
 

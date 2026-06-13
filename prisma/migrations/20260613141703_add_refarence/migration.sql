@@ -1,0 +1,5 @@
+-- DropForeignKey
+ALTER TABLE "partyLes" DROP CONSTRAINT "partyLes_TR_fkey";
+
+-- AddForeignKey
+ALTER TABLE "partyLes" ADD CONSTRAINT "partyLes_TR_fkey" FOREIGN KEY ("TR") REFERENCES "TR"("TRID") ON DELETE RESTRICT ON UPDATE CASCADE;
